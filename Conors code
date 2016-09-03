@@ -1,1 +1,319 @@
 
+##-------------------------------------------------------------------------------
+## Name:        Lizard Spock
+## Purpose:
+##
+## Author:      conor.meaclem
+##
+## Created:     15/08/2016
+## Copyright:   (c) conor.meaclem 2016
+## Licence:     <your licence>
+##-------------------------------------------------------------------------------
+##Import Modules, define Game actions and other variables
+import random
+import ctypes  ## this library alows message boxes to be displayed
+## without an input being made
+game_actions = ("Paper", "Scissors", "Rock", "Lizard", "Spock")
+game_replay = "true"
+game_result =(None)
+user_name = (None)
+game_rounds = 0
+games_played = 0
+
+## Define Subroutine
+def val_input(game_text, indicator):
+
+    while True:
+        ## Name Validation
+        if indicator == "n":
+            game_var = input(game_text)
+            if game_var != "":
+                break
+            elif game_var == "":
+                game_text = "Please enter something!"
+                game_var = val_input(game_text, "n")
+                break
+        ## Integer Validation
+        elif indicator == "i":
+            game_var = input(game_text)
+            try:
+                if game_var != 0:
+                    game_var = int(game_var)
+                    break
+                elif game_var == 0:
+                    game_text = "Please enter a value greater than 0"
+                    game_var = val_input(game_text, "i")
+                    break
+            except ValueError:
+                game_text = "{}, please enter a numeric".format(user_name)
+                game_var = val_input(game_text, "i")
+                break
+        ## User Answer Validation
+        elif indicator == "a":
+            game_var = input(game_text)
+            game_var = game_var.title()
+            if game_var == "Paper":
+                game_var = "p"
+                break
+            elif game_var == "Scissors":
+                game_var = "s"
+                break
+            elif game_var == "Rock":
+                game_var = "r"
+                break
+            elif game_var == "Lizard":
+                game_var = "l"
+                break
+            elif game_var == "Spock":
+                game_var = "v"
+                break
+            elif game_var != "Paper":
+                game_text = "{}, please enter a valid option".format(user_name)
+                game_var = val_input(game_text, "a")
+                break
+            elif game_var != "Scissors":
+                game_text = "{}, please enter a valid option".format(user_name)
+                game_var = val_input(game_text, "a")
+                break
+            elif game_var != "Rock":
+                game_text = "{}, please enter a valid option".format(user_name)
+                game_var = val_input(game_text, "a")
+                break
+            elif game_var != "Lizard":
+                game_text = "{}, please enter a valid option".format(user_name)
+                game_var = val_input(game_text, "a")
+                break
+            elif game_var != "Spock":
+                game_text = "{}, please enter a valid option".format(user_name)
+                game_var = val_input(game_text, "a")
+                break
+        ## Deciding if the computer or user won
+        elif indicator == "g":
+             ##Paper
+            if user_answer == "p" :
+                if  comp_choice == 1:
+                    game_var =("Draw!")
+                    break
+                elif  comp_choice == 2:
+                    game_var =("Lose!")
+                    break
+
+                elif  comp_choice == 3:
+                    game_var =("Win!")
+                    break
+                elif  comp_choice == 4:
+                    game_var =("Lose!")
+                    break
+                elif  comp_choice == 5:
+                    game_var =("Win!")
+                    break
+            ##Scissors
+            if user_answer == "s":
+                if  comp_choice == 1:
+                    game_var =("Win!")
+                    break
+                elif  comp_choice == 2:
+                    game_var =("Draw")
+                    break
+                elif  comp_choice == 3:
+                    game_var =("Lose!")
+                    break
+                elif  comp_choice == 4:
+                    game_var =("Win!")
+                    break
+                elif  comp_choice == 5:
+                    game_var =("Lose!")
+                    break
+            ##Rock
+            if user_answer == "r":
+                if  comp_choice == 1:
+                    game_var =("Lose!")
+                    break
+                elif  comp_choice == 2:
+                    game_var =("Win!")
+                    break
+                elif  comp_choice == 3:
+                    game_var =("Draw!")
+                    break
+                elif  comp_choice == 4:
+                    game_var =("Win!")
+                    break
+                elif  comp_choice == 5:
+                    game_var =("Lose!")
+                    break
+        ##Lizard
+            if user_answer == "l":
+                if  comp_choice == 1:
+                    game_var = ("Win!")
+                    break
+                elif  comp_choice == 2:
+                    game_var = ("Lose!")
+                    break
+                elif  comp_choice == 3:
+                    game_var = ("Lose!")
+                    break
+                elif  comp_choice == 4:
+                    game_var = ("Draw!")
+                    break
+                elif  comp_choice == 5:
+                    game_var = ("Win!")
+                    break
+            ##Spock
+            if user_answer == "v":
+                if  comp_choice == 1:
+                    game_var =("Lose!")
+                    break
+                elif  comp_choice == 2:
+                    game_var =("Win!")
+                    break
+                elif  comp_choice == 3:
+                    game_var =("Win!")
+                    break
+                elif  comp_choice == 4:
+                    game_var =("Lose!")
+                    break
+                elif  comp_choice == 5:
+                    game_var =("Draw!")
+                    break
+
+
+        elif indicator == "u":
+            game_var = (game_text)
+            if  game_var == "p":
+                game_var =("Paper")
+                break
+            elif  game_var == "s":
+                game_var =("Scissors")
+                break
+            elif  game_var == "r":
+                game_var =("Rock")
+                break
+            elif  game_var == "l":
+                game_var =("Lizard")
+                break
+            elif  game_var == "v":
+                game_var =("Spock")
+                break
+
+        elif indicator == "c":
+            game_var = (game_text)
+            if  game_var == 1:
+                game_var =("Paper")
+                break
+            elif  game_var == 2:
+                game_var =("Scissors")
+                break
+            elif  game_var == 3:
+                game_var =("Rock")
+                break
+            elif  game_var == 4:
+                game_var =("Lizard")
+                break
+            elif  game_var == 5:
+                game_var =("Spock")
+                break
+
+        ## Replay True or false
+        elif indicator == "r":
+            game_var = input(game_text)
+            game_var = game_var.lower()
+            if game_var == ("true"):
+                break
+            elif game_var == ("false"):
+                break
+            elif game_var != ("true"):
+                game_text = "{}, please Enter Either True or False".foramt(user_name)
+                game_var = val_input(game_text, "r")
+                break
+            elif game_var != ("false"):
+                game_text = "{}, please Enter Either True or False".foramt(user_name)
+                game_var = val_input(game_text, "r")
+                break
+    return(game_var)
+
+## sets variable to ask the user for their name
+game_text = ("Hello. What is your name?")
+## Validate the user's input name
+user_name = val_input(game_text, "n")
+## Loop the game while replay is true, which is true to begin with,
+## and then is changed based on the user
+while game_replay == "true":
+## Game loop setup. sets results etc
+    game_result =(None)
+    user_answer =(None)
+    comp_choice =(None)
+    game_history = []
+    games_played += 1
+    game_win = 0
+    game_draw = 0
+    game_lose = 0
+    ## Set game_text to ask the user for the number of rounds the would like
+    game_text = ("{}, How many rounds would you like to play?" .format(user_name))
+    ## Validates the user's input number
+    user_rounds = val_input(game_text, "i")
+    ## Loop for number of rounds spesified by the user
+    for i in range(user_rounds):
+        ## Set variable to display results (win, Draw, lose) and previous rounds
+        ## inputs and outcomes (if any) and ask the user for their input
+        game_text = ("{0}, in the current game you have:\nWon {1} games.\n"
+        "Drew {2} games.\nLost {3} games.\nYour previous results were:\n"
+        "{4}\n"
+        "Please choose an action: {5}"
+        .format(user_name, game_win, game_draw, game_lose, game_history, game_actions))
+        ## Validates the user's input
+        user_answer = val_input(game_text, "a")
+        ## Sets the computers's choice
+        comp_choice = random.randint(0, 5)
+        ## Checks who won the game
+        game_text = (user_answer)
+        game_result = val_input(game_text, "g")
+        ## Adds point based on result
+        if game_result == "Win!":
+            game_win += 1
+        elif game_result == "Lose!":
+            game_lose += 1
+        elif game_result == "Draw!":
+            game_draw += 1
+        ## Calculates number of rounds played
+        game_rounds = game_win + game_lose + game_draw
+
+        game_text = (user_answer)
+
+        user_answer =  val_input(game_text, "u")
+
+        game_text = (comp_choice)
+
+        comp_choice =  val_input(game_text, "c")
+        ## Sets variable to result
+        game_text = ("{} The Computer Chose {} and you chose {}."
+        .format(game_result, comp_choice, user_answer))
+        ## Adds the result to the attempt history
+        game_history.insert(len(game_history), game_text  )
+        ## Informs the user of the result
+        ctypes.windll.user32.MessageBoxW(0, "{}, you {} the computer chose {}"
+        " and you chose {}."
+        .format(user_name, game_result, comp_choice, user_answer),"Message",0 )
+
+    ## At the end of the game, informs the user of W/L/D ratio and number of
+    ## Games and rounds played
+    game_text = ("{0}, You have:\nWon {1} games.\nDrew {2} games."
+    "\nLost {3} games.\n"
+    "Played {4} Rounds.\n"
+    "And completed {5} Game/s.\nWould you like to play again? (True / False)"
+    .format(user_name, game_win, game_draw,
+     game_lose, game_rounds, games_played))
+    game_replay = val_input(game_text, "r")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
